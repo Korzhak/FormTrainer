@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trainer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .block {
+            background: #DDDDDD30;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        .form-block {
+            margin: 20px 100px;
+        }
+        .form-control {
+            margin: 10px 0;
+        }
+
+        ul {
+            width: 600px;
+            margin: 30px auto;
+        }
+
+        ul li {
+            display: inline-block;
+            margin: 0 32px;
+            font-size: 22px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5 block">
+
+
+            <h1 class="text-center font-weight-light">Вітаю, Ви знаходитесь на сторінці Form Trainer <br><span class="font-weight-light">endpoint: </span><b>User</b></h1>
+
+            <ul>
+                <li><a href="/form-trainer/">Home</a></li>
+                <li><a href="/form-trainer/user/">User Trainer</a></li>
+                <li><a href="/form-trainer/comment/">Comment Trainer</a></li>
+            </ul>
+
+            <p class="text-center">Щоб надіслати дані в форму <b>User</b>, Вам потрібно виконати наступні дії:</p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                1. Створити форму на своїй сторінці
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <pre>
+&lt;form&gt;
+    &lt;input <b>type="text"</b> placeholder="Your first name" <b>name="first_name"</b>&gt;
+    &lt;input <b>type="text"</b> placeholder="Your second name" <b>name="second_name"</b>&gt;
+    &lt;input <b>type="text"</b> placeholder="Your login" <b>name="login"</b>&gt;
+    &lt;input <b>type="email"</b> placeholder="youremail@mail.com" <b>name="email"</b>&gt;
+    &lt;input <b>type="password"</b> placeholder="Your password" <b>name="password"</b>&gt;
+&lt;/form&gt;
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo">
+                                2. Вказати кінцеву точку (endpoint), куди дані будуть відправлятися
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Замість <i>[sitename]</i> потрібно вкласти доменне ім'я сайту, або ІР-адрес <br></p>
+                            <pre>
+&lt;form <b>action="<i>[sitename]</i>/form-trainer/user/"</b>&gt;
+    ...
+&lt;/form&gt;
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                    aria-expanded="false" aria-controls="collapseThree">
+                                3. Вказати метод, за допомогою якого дані будуть відправлені
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Є два основних метода <i>(використовуємо тільки їх)</i>:</p>
+                            <ul>
+                                <li><b>POST</b></li>
+                                <li><b>GET</b></li>
+                            </ul>
+                             <p>Інші методи (використовуються рідше та в дуже вузькоспеціалізованих випадках):</p>
+                            <ul>
+                                <li>PUT</li>
+                                <li>DELETE</li>
+                                <li>UPDATE</li>
+                            </ul>
+                            <p>Вкладаємо назву методу на місце <i>[method-name]</i></p>
+                            <pre>
+&lt;form action="[sitename]/form-trainer/user/" <b>method="<i>[method-name]</i>"</b>&gt;
+    ...
+&lt;/form&gt;
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseFour">
+                                4. Додати після всіх input-тегів кнопку для відправки даних
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Є два основних метода <i>(використовуємо тільки їх)</i>:</p>
+
+                            <pre>
+&lt;form action="[sitename]/form-trainer/user/" method="[method-name]"&gt;
+    ...
+    <b>&lt;button type="submit"&gt;Відправити&lt;/button&gt;</b>
+&lt;/form&gt;
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            <hr>
+
+            <h2 class="text-center font-weight-light">Приклад</h2>
+
+            <div class="form-block">
+                <form action="/form-trainer/user/" method="POST">
+                    <input type="text" class="form-control" placeholder="Your first name" name="first_name">
+                    <input type="text" class="form-control" placeholder="Your second name" name="second_name">
+                    <input type="text" class="form-control" placeholder="Your login" name="login">
+                    <input type="email" class="form-control" placeholder="youremail@mail.com" name="email">
+                    <input type="password" class="form-control" placeholder="Your password" name="password">
+                    <button class="btn btn-primary" type="submit">Відправити</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
