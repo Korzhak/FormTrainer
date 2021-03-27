@@ -172,6 +172,11 @@
 
             <h2 class="text-center font-weight-light">Приклад</h2>
 
+            {% if name %}
+                <h4 class="text-center font-weight-light">Отримані дані методом <b>{{ method }}</b>:</h4>
+                <p class="text-center">name: <b>{{ name }}</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; email: <b>{{ email }}</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; comment: <b>{{ comment }}</b> </p>
+            {% endif %}
+
             <div class="form-block">
                 <form action="/form-trainer/comment/" method="get">
                     <input type="text" class="form-control" placeholder="Your name" name="name">
